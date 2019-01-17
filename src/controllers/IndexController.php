@@ -21,14 +21,14 @@ class IndexController extends CommonController
     {
         $view = view('lottery::phaser.pages.turntable');
         $src = PathClasses::getSrc($view);
-        return $view->with('src',$src)->with('public_src',dirname($src).'/');
+        return $view->with('src',$src);
     }
 
     public function showRedEnvelopesRain()
     {
         $view = view('lottery::phaser.pages.redEnvelopesRain');
         $src = PathClasses::getSrc($view);
-        return $view->with('src',$src)->with('public_src',dirname($src).'/');
+        return $view->with('src',$src);
     }
 
     /**
