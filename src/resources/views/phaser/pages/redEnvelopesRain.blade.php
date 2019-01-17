@@ -1,4 +1,5 @@
 ﻿@extends('lottery::phaser.layouts.default')
+@section('title'){{__('lottery::redenvelopesrain.title')}}@endsection
 @section('content')
 <script src="{{ $src.'/assets/js/red_envelopes_rain.min.js' }}"></script>
 <div>

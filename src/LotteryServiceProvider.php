@@ -17,9 +17,13 @@ class LotteryServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__ . '/resources/views', 'lottery');
         $this->loadRoutesFrom(__DIR__.'/routes.php');
         $this->mergeConfigFrom(__DIR__ . '/config/lottery.php', 'lottery');
+        $this->loadMigrationsFrom(__DIR__.'/database/migrations');
+        $this->loadTranslationsFrom(__DIR__.'/lang', 'lottery');
         $this->publishes([
             __DIR__.'/resources/views' => base_path('resources/views/lottery'),
             __DIR__ . '/config/lottery.php' => config_path('lottery.php'),
+            __DIR__.'/lang' => resource_path('lang/lottery'),
+            __DIR__.'/database/migrations/' => database_path('migrations')
         ]);
     }
 

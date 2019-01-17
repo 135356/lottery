@@ -3,6 +3,7 @@
 namespace Lonban\Lottery\Controllers;
 
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\App;
 
 /**
  * @OA\Info(
@@ -15,6 +16,7 @@ class CommonController extends Controller
 {
     public function __construct()
     {
+        App::setLocale('zh');
     }
 
     public static function newSelf()

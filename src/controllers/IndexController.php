@@ -3,10 +3,9 @@
 namespace Lonban\Lottery\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controller;
 use Lonban\Lottery\Classes\PathClasses;
 
-class IndexController extends Controller
+class IndexController extends CommonController
 {
     /**
      * Display a listing of the resource.
@@ -20,7 +19,6 @@ class IndexController extends Controller
 
     public function showTurntable()
     {
-        //$view = view('lottery::game.pages.turntable');
         $view = view('lottery::phaser.pages.turntable');
         $src = PathClasses::getSrc($view);
         return $view->with('src',$src)->with('public_src',dirname($src).'/');
@@ -28,7 +26,6 @@ class IndexController extends Controller
 
     public function showRedEnvelopesRain()
     {
-        //$view = view('lottery::game.pages.turntable');
         $view = view('lottery::phaser.pages.redEnvelopesRain');
         $src = PathClasses::getSrc($view);
         return $view->with('src',$src)->with('public_src',dirname($src).'/');

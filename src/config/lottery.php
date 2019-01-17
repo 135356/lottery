@@ -1,4 +1,7 @@
 <?php
 return [
-    'name' => 'lottery'
+    'name' => 'lottery',
+    'config' => [
+        'use_type' => 'money' //money、points、number
+    ]
 ];

@@ -1,4 +1,5 @@
 @extends('lottery::phaser.layouts.default')
+@section('title'){{__('lottery::turntable.title')}}@endsection
 @section('content')
     <script src="{{ $src.'/assets/js/turntable.min.js' }}"></script>
     <div style="background: #eee;">
