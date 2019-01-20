@@ -3,7 +3,6 @@
 namespace Lonban\Lottery\Controllers;
 
 use Illuminate\Http\Request;
-use Lonban\Lottery\Classes\PathClasses;
 
 class IndexController extends CommonController
 {
@@ -14,21 +13,17 @@ class IndexController extends CommonController
      */
     public function index()
     {
-        return 12346;
+        //
     }
 
     public function showTurntable()
     {
-        $view = view('lottery::phaser.pages.turntable');
-        $src = PathClasses::getSrc($view);
-        return $view->with('src',$src);
+        return view('lottery::phaser.pages.turntable');
     }
 
     public function showRedEnvelopesRain()
     {
-        $view = view('lottery::phaser.pages.redEnvelopesRain');
-        $src = PathClasses::getSrc($view);
-        return $view->with('src',$src);
+        return view('lottery::phaser.pages.redEnvelopesRain');
     }
 
     /**

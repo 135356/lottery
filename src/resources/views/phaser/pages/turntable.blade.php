@@ -1,22 +1,22 @@
 @extends('lottery::phaser.layouts.default')
 @section('title'){{__('lottery::turntable.title')}}@endsection
 @section('content')
-    <script src="{{ $src.'/assets/js/turntable.min.js' }}"></script>
+    <script src="{{Lottery::getAssets('js/turntable.min.js')}}"></script>
     <div style="background: #eee;">
         <div id="canvas_prize1_html">
             <div style="padding:10px;">
-                <div vc_alert_run="1" style="width: 600px;margin:auto;">
-                    <div vc_alert_content="1" vc_prize_hint="true" style="position:fixed;top: 50%;transform: translate(0,-50%);width: 600px;display:none;padding:20px;text-align:center;font-size:24px;-webkit-border-radius: 8px;-moz-border-radius: 8px;border-radius: 8px;background:#ff8000;background-size: 100% 100%;">
+                <div vcc_alert_run="1" style="width: 600px;margin:auto;">
+                    <div vcc_alert_content="1" vcc_prize_hint="true" style="position:fixed;top: 50%;transform: translate(0,-50%);width: 600px;display:none;padding:20px;text-align:center;font-size:24px;-webkit-border-radius: 8px;-moz-border-radius: 8px;border-radius: 8px;background:#ff8000;background-size: 100% 100%;">
                         <a>
-                            <i vc_alert_click="hide" class="vc_iconfont" style="position:absolute;top:6px;right:6px;cursor:default">&#xe63a;</i>
+                            <i vcc_alert_click="hide" class="vcc_iconfont" style="position:absolute;top:6px;right:6px;cursor:default">&#xe63a;</i>
                         </a>
-                        <p vc_prize_hint="title" style="font-weight: 800;width: 90%;margin: 0;"></p>
-                        <p vc_prize_hint="code" style="font-weight: 500;width: 90%;color:#c00;margin: 0;"></p>
-                        <p vc_prize_hint="desc" style="font-size:16px;margin: 0;"></p>
-                        <p vc_prize_hint="click1" style="margin:20px auto;">
+                        <p vcc_prize_hint="title" style="font-weight: 800;width: 90%;margin: 0;"></p>
+                        <p vcc_prize_hint="code" style="font-weight: 500;width: 90%;color:#c00;margin: 0;"></p>
+                        <p vcc_prize_hint="desc" style="font-size:16px;margin: 0;"></p>
+                        <p vcc_prize_hint="click1" style="margin:20px auto;">
                             <a href="/" style="padding:10px 30px;font-weight: 800;color:#fff;border-radius:5px;background:#0097FF;">立即使用</a>
                         </p>
-                        <p vc_prize_hint="click2" style="margin: 0;">
+                        <p vcc_prize_hint="click2" style="margin: 0;">
                             <a href="#" style="font-size:16px;color:#00A8FF;">检查我的优惠券</a>
                         </p>
                     </div>
@@ -56,44 +56,44 @@
             /*{#中奖后的提示#}*/
             prizeHint:function(data)
             {
-                var obj = $('[vc_prize_hint="true"]');
+                var obj = $('[vcc_prize_hint="true"]');
                 if(data['id']=='4'||data['id']=='11'){
-                    obj.find('[vc_prize_hint="title"]').html(data['title']);
-                    obj.find('[vc_prize_hint="code"]').hide();
-                    obj.find('[vc_prize_hint="desc"]').html(data['desc']);
-                    obj.find('[vc_prize_hint="click1"]').hide();
-                    obj.find('[vc_prize_hint="click2"]').hide();
+                    obj.find('[vcc_prize_hint="title"]').html(data['title']);
+                    obj.find('[vcc_prize_hint="code"]').hide();
+                    obj.find('[vcc_prize_hint="desc"]').html(data['desc']);
+                    obj.find('[vcc_prize_hint="click1"]').hide();
+                    obj.find('[vcc_prize_hint="click2"]').hide();
                 }else if(data['id']=='5'||data['id']=='10'||data['id']=='15'){
-                    obj.find('[vc_prize_hint="title"]').html('<span style="font-size: 36px;line-height: 32px;">'+data['title']+'</span>');
-                    obj.find('[vc_prize_hint="code"]').hide();
-                    obj.find('[vc_prize_hint="desc"]').hide();
-                    obj.find('[vc_prize_hint="click1"]').hide();
-                    obj.find('[vc_prize_hint="click2"]').hide();
+                    obj.find('[vcc_prize_hint="title"]').html('<span style="font-size: 36px;line-height: 32px;">'+data['title']+'</span>');
+                    obj.find('[vcc_prize_hint="code"]').hide();
+                    obj.find('[vcc_prize_hint="desc"]').hide();
+                    obj.find('[vcc_prize_hint="click1"]').hide();
+                    obj.find('[vcc_prize_hint="click2"]').hide();
                 }else{
-                    var obj = $('[vc_prize_hint="true"]');
-                    obj.find('[vc_prize_hint="title"]').html(data['title']);
-                    obj.find('[vc_prize_hint="code"]').html(data['code']);
-                    obj.find('[vc_prize_hint="desc"]').html(data['desc']);
-                    obj.find('[vc_prize_hint="click1"]').show();
-                    obj.find('[vc_prize_hint="click2"]').show();
+                    var obj = $('[vcc_prize_hint="true"]');
+                    obj.find('[vcc_prize_hint="title"]').html(data['title']);
+                    obj.find('[vcc_prize_hint="code"]').html(data['code']);
+                    obj.find('[vcc_prize_hint="desc"]').html(data['desc']);
+                    obj.find('[vcc_prize_hint="click1"]').show();
+                    obj.find('[vcc_prize_hint="click2"]').show();
                 }
-                $('[vc_alert_run="1"]').vc_alert_run();
+                $('[vcc_alert_run="1"]').vcc_alert_run();
                 $.post('{{url('/')}}',{prize_id:data['id'],user_id:'{{'123'}}'});
             },
             /*{#没有中奖资格或中奖次数以用完#}*/
             prizeHintNo:function()
             {
-                var obj = $('[vc_prize_hint="true"]');
-                obj.find('[vc_prize_hint="title"]').html('<span style="font-size: 36px;line-height: 32px;">没有中奖资格或中奖次数以用完</span>');
-                obj.find('[vc_prize_hint="code"]').hide();
-                obj.find('[vc_prize_hint="desc"]').hide();
-                obj.find('[vc_prize_hint="click1"]').hide();
-                obj.find('[vc_prize_hint="click2"]').hide();
-                $('[vc_alert_run="1"]').vc_alert_run();
+                var obj = $('[vcc_prize_hint="true"]');
+                obj.find('[vcc_prize_hint="title"]').html('<span style="font-size: 36px;line-height: 32px;">没有中奖资格或中奖次数以用完</span>');
+                obj.find('[vcc_prize_hint="code"]').hide();
+                obj.find('[vcc_prize_hint="desc"]').hide();
+                obj.find('[vcc_prize_hint="click1"]').hide();
+                obj.find('[vcc_prize_hint="click2"]').hide();
+                $('[vcc_alert_run="1"]').vcc_alert_run();
             }
         };
         /*{#游戏dom元素#}*/
         var obj_div = $('#canvas_prize1');
-        $.turntable(obj_div,data_came,{'wheel':"{{ $src.'/assets/img/game_wheel.png' }}",'pin':"{{ $src.'/assets/img/game_pin.png' }}"},{'width':parseInt(obj_div.css('width')),'height':parseInt(obj_div.css('height'))},slicePrizes,callback);
+        $.turntable(obj_div,data_came,{'wheel':"{{Lottery::getAssets('img/game_wheel.png')}}",'pin':"{{Lottery::getAssets('img/game_pin.png')}}"},{'width':parseInt(obj_div.css('width')),'height':parseInt(obj_div.css('height'))},slicePrizes,callback);
     </script>
 @endsection

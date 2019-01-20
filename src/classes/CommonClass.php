@@ -2,7 +2,7 @@
 
 namespace Lonban\Lottery\Classes;
 
-class CommonClasses
+class CommonClass
 {
     public function __construct()
     {

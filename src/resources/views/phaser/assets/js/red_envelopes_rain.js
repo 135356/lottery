@@ -27,11 +27,11 @@ jQuery.redEnvelopesRain=function(obj_div,data_came,data_img,data_style,data_priz
     var game = new Phaser.Game(data_style['width'],data_style['height'],Phaser.AUTO,'canvas_prize1',{preload:preload,create:create},true);
     /*obj_div['canvas_prize1'].click(function(){});*/
     /*点击叉叉隐藏*/
-    obj_div['vc_canvas_prize1_click_hide'].on('click',function(){
+    obj_div['vcc_canvas_prize1_click_hide'].on('click',function(){
         obj_div['redEnvelopesRain'].hide();
     });
     /*点击右侧红包显示*/
-    obj_div['vc_click_show_redEnvelopesRain'].click(function(){
+    obj_div['vcc_click_show_redEnvelopesRain'].click(function(){
         obj_div['redEnvelopesRain'].show();
         if(data_came['time']<1 || !data_came['prizes']){
             Callbacks.prizeHintNo();
