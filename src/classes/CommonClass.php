@@ -6,15 +6,12 @@ class CommonClass
 {
     public function __construct()
     {
+        //
     }
 
     public static function newSelf()
     {
-        if(static::$SELF instanceof self) {
-            //static::$SELF;
-        } else {
-            static::$SELF = new static();
-        }
+        //
     }
 
     public static function __callstatic($method,$arg)
