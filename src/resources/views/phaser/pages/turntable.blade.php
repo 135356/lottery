@@ -1,7 +1,7 @@
 @extends('lottery::phaser.layouts.default')
 @section('title'){{__('lottery::turntable.title')}}@endsection
 @section('content')
-    <script src="{{Lottery::getAssets('js/turntable.min.js')}}"></script>
+    <script src="{{LotteryPath::getAssets('js/turntable.min.js')}}"></script>
     <div style="background: #eee;">
         <div id="canvas_prize1_html">
             <div style="padding:10px;">
@@ -94,6 +94,6 @@
         };
         /*{#游戏dom元素#}*/
         var obj_div = $('#canvas_prize1');
-        $.turntable(obj_div,data_came,{'wheel':"{{Lottery::getAssets('img/game_wheel.png')}}",'pin':"{{Lottery::getAssets('img/game_pin.png')}}"},{'width':parseInt(obj_div.css('width')),'height':parseInt(obj_div.css('height'))},slicePrizes,callback);
+        $.turntable(obj_div,data_came,{'wheel':"{{LotteryPath::getAssets('img/game_wheel.png')}}",'pin':"{{LotteryPath::getAssets('img/game_pin.png')}}"},{'width':parseInt(obj_div.css('width')),'height':parseInt(obj_div.css('height'))},slicePrizes,callback);
     </script>
 @endsection
