@@ -2,7 +2,7 @@
     "name": "lonban/lottery",
     "description": "游戏活动如转盘抽奖",
     "keywords": ["活动抽奖","转盘","红包雨"],
-    "license": "Apache-2.0",
+    "license": "MIT",
     "type": "laravel-library",
     "authors": [
         {
@@ -12,7 +12,7 @@
     ],
     "require": {
         "php": "^7.0.0",
-        "lonban/vcc": "~1.1.0"
+        "lonban/vcc": "~0.1.0"
     },
     "autoload": {
         "psr-4": {
