@@ -14,16 +14,17 @@ class LotteryServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->loadViewsFrom(__DIR__ . '/resources/views', 'lottery');
-        $this->loadRoutesFrom(__DIR__.'/routes.php');
-        $this->mergeConfigFrom(__DIR__ . '/config/lottery.php', 'lottery');
+        $this->loadRoutesFrom(__DIR__.'/routes/web.php');
+        $this->loadRoutesFrom(__DIR__.'/routes/api.php');
         $this->loadMigrationsFrom(__DIR__.'/database/migrations');
         $this->loadTranslationsFrom(__DIR__.'/lang', 'lottery');
+        $this->mergeConfigFrom(__DIR__ . '/config/lottery.php', 'lottery');
+        $this->loadViewsFrom(__DIR__ . '/resources/views', 'lottery');
         $this->publishes([
-            __DIR__.'/resources/views' => base_path('resources/views/lottery'),
-            __DIR__ . '/config/lottery.php' => config_path('lottery.php'),
             __DIR__.'/lang' => resource_path('lang/lottery'),
-            __DIR__.'/database/migrations/' => database_path('migrations')
+            __DIR__ . '/config/lottery.php' => config_path('lottery.php'),
+            __DIR__.'/database/migrations/' => database_path('migrations'),
+            __DIR__.'/resources/views' => base_path('resources/views/lottery'),
         ]);
     }
 
@@ -34,7 +35,6 @@ class LotteryServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        // 单例绑定服务
         $this->app->singleton('Lottery', function ($app) {
             return new LotteryFacade($app['session'], $app['config']);
         });
