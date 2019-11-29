@@ -1,7 +1,7 @@
 ﻿@extends('lottery::phaser.layouts.default')
 @section('title'){{__('lottery::redenvelopesrain.title')}}@endsection
 @section('content')
-<script src="{{LotteryPath::getAssets('js/red_envelopes_rain.min.js')}}"></script>
+<script src="{{LotteryVccPath::getAssets('js/red_envelopes_rain.min.js')}}"></script>
 <div>
     <div class="main container" style="position:relative;margin:10px auto;">
         <div id="redEnvelopesRain" style="position:absolute;top:0;left:0;width: 100%;">
@@ -92,7 +92,7 @@
     };
 
     var obj_div = {'canvas_prize1':$('#canvas_prize1'),'vcc_canvas_prize1_click_hide':$('[vcc_canvas_prize1_click_hide="true"]'),'vcc_alert_body_redEnvelopesRain':$('#vcc_alert_body_redEnvelopesRain'),'redEnvelopesRain':$('#redEnvelopesRain'),'vcc_click_show_redEnvelopesRain':$('[vcc_click_show_redEnvelopesRain="true"]')};
-    var data_img = {'jing_ling1':"{{LotteryPath::getAssets('img/honbao.png')}}"};
+    var data_img = {'jing_ling1':"{{LotteryVccPath::getAssets('img/honbao.png')}}"};
     var data_style = {'width':parseInt(obj_div['canvas_prize1'].css('width')),'height':parseInt(obj_div['canvas_prize1'].css('height'))};
     $.redEnvelopesRain(obj_div,data_came,data_img,data_style,data_prizes,callback);
 </script>

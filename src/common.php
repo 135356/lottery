@@ -1,6 +1,6 @@
 <?php
 
-class LotteryPath extends \Lonban\Vcc\Classes\PathClass
+class LotteryVccPath extends \Lonban\Vcc\Classes\VccPath
 {
     static $path = __DIR__;
     static $assets_splice = 'src/resources/views/phaser/assets/';
